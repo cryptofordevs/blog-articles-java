@@ -30,6 +30,10 @@ public class Main {
 
 		System.out.println(Base64.getEncoder().encode(cipherText));
 		System.out.println("");
+
+		cbc.init(Cipher.DECRYPT_MODE, secretKey, ivParams);
+		byte[] decrypted = cbc.doFinal(cipherText);
+		System.out.println(new String(decrypted));
 	}
 
 }
